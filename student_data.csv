@@ -1,0 +1,3 @@
+student_id,student_name,subject,academic_year,term,study_time_hours,attendance_percent,previous_grade,final_grade
+00008,Kofi,Mathematics,Year 1,Year 1 - Term 1,2.83,45.61,56.0,A
+00008,Kofi,Information Technology,Year 1,Year 1 - Term 1,2.83,45.61,75.0,D
