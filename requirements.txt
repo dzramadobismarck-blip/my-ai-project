@@ -1,2 +1,7 @@
 streamlit
 fpdf
+streamlit
+fpdf
+river
+pandas
+numpy
