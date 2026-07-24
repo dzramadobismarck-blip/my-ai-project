@@ -3,6 +3,7 @@ import pandas as pd
 import os
 import tempfile
 from fpdf import FPDF
+from fpdf.enums import XPos, YPos
 from models import OnlineSystem
 
 # --- Page Configuration & Styling ---
@@ -153,9 +154,9 @@ def generate_pdf_report(dataframe_to_print, title="System Audit Log"):
     pdf.add_page()
     pdf.set_font("helvetica", "B", 16)
     
-    pdf.cell(0, 10, title, new_x="LMARGIN", new_y="NEXT", align="L")
+    pdf.cell(0, 10, title, new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="L")
     pdf.set_font("helvetica", "", 10)
-    pdf.cell(0, 8, f"Generated on: {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M')}", new_x="LMARGIN", new_y="NEXT", align="L")
+    pdf.cell(0, 8, f"Generated on: {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M')}", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="L")
     pdf.ln(5)
     
     pdf.set_font("helvetica", "B", 9)
@@ -187,17 +188,17 @@ def generate_comprehensive_student_report(student_id, df_records, history_df):
     pdf.add_page()
     
     pdf.set_font("helvetica", "B", 16)
-    pdf.cell(0, 10, "Comprehensive Per-Subject Academic Report", new_x="LMARGIN", new_y="NEXT", align="L")
+    pdf.cell(0, 10, "Comprehensive Per-Subject Academic Report", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="L")
     pdf.set_font("helvetica", "", 10)
-    pdf.cell(0, 6, f"Generated on: {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M')}", new_x="LMARGIN", new_y="NEXT", align="L")
+    pdf.cell(0, 6, f"Generated on: {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M')}", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="L")
     pdf.ln(5)
     
     pdf.set_font("helvetica", "B", 11)
-    pdf.cell(0, 8, f"Student ID: {student_id}", new_x="LMARGIN", new_y="NEXT")
+    pdf.cell(0, 8, f"Student ID: {student_id}", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     pdf.ln(5)
     
     pdf.set_font("helvetica", "B", 10)
-    pdf.cell(0, 8, "Current Subject Baseline Records", new_x="LMARGIN", new_y="NEXT")
+    pdf.cell(0, 8, "Current Subject Baseline Records", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     
     pdf.set_font("helvetica", "B", 9)
     b_headers = ["Subject", "Period", "Study Hrs", "Attendance", "Prev Grade", "Final Grade"]
@@ -222,7 +223,7 @@ def generate_comprehensive_student_report(student_id, df_records, history_df):
             
     pdf.ln(5)
     pdf.set_font("helvetica", "B", 10)
-    pdf.cell(0, 8, "Evaluation & Intervention Logs History", new_x="LMARGIN", new_y="NEXT")
+    pdf.cell(0, 8, "Evaluation & Intervention Logs History", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     
     pdf.set_font("helvetica", "B", 9)
     h_headers = ["Period", "Subject", "Score", "Risk Status", "Date Logged"]
